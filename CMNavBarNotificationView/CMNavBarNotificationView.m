@@ -242,7 +242,7 @@ static UIImage * __backgroundImage = nil;
         [self addSubview:_contentView];
         
         _imageView = [[UIImageView alloc] initWithFrame:CGRectMake(6, 6, 28, 28)];
-        _imageView.contentMode = UIViewContentModeScaleAspectFill;
+        _imageView.contentMode = UIViewContentModeScaleAspectFit;
         _imageView.layer.cornerRadius = 4.0f;
         _imageView.clipsToBounds = YES;
         [self addSubview:_imageView];
@@ -254,9 +254,12 @@ static UIImage * __backgroundImage = nil;
                                       textFont.lineHeight);
         _textLabel = [[UILabel alloc] initWithFrame:textFrame];
         _textLabel.font = textFont;
+        _textLabel.textColor = [UIColor whiteColor];
+        _textLabel.shadowColor = [UIColor blackColor];
+        [_textLabel setShadowOffset:CGSizeMake(0, 1)];
         _textLabel.numberOfLines = 1;
-        _textLabel.textAlignment = UITextAlignmentLeft;
-        _textLabel.lineBreakMode = UILineBreakModeTailTruncation;
+        _textLabel.textAlignment = NSTextAlignmentLeft;
+        _textLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         _textLabel.backgroundColor = [UIColor clearColor];
         [_contentView addSubview:_textLabel];
         
@@ -268,9 +271,12 @@ static UIImage * __backgroundImage = nil;
         
         _detailTextLabel = [[UILabel alloc] initWithFrame:detailFrame];
         _detailTextLabel.font = detailFont;
+        _detailTextLabel.textColor = [UIColor whiteColor];
+        _detailTextLabel.shadowColor = [UIColor blackColor];
+        [_detailTextLabel setShadowOffset:CGSizeMake(0, 1)];
         _detailTextLabel.numberOfLines = 1;
-        _detailTextLabel.textAlignment = UITextAlignmentLeft;
-        _detailTextLabel.lineBreakMode = UILineBreakModeTailTruncation;
+        _detailTextLabel.textAlignment = NSTextAlignmentLeft;
+        _detailTextLabel.lineBreakMode = NSLineBreakByTruncatingTail;
         _detailTextLabel.backgroundColor = [UIColor clearColor];
         [_contentView addSubview:_detailTextLabel];
     }
