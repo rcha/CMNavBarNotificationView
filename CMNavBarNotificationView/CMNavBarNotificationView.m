@@ -349,6 +349,7 @@ static UIImage * __backgroundImage = nil;
         CGRect frame = [CMNavBarNotificationWindow notificationRectWithOrientation:orientation];
         __notificationWindow = [[CMNavBarNotificationWindow alloc] initWithFrame:frame];
         __notificationWindow.hidden = NO;
+        __notificationWindow.rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
     }
     CGRect bounds = __notificationWindow.bounds;
     CMNavBarNotificationView * notification = [[CMNavBarNotificationView alloc] initWithFrame:bounds];
@@ -370,6 +371,7 @@ static UIImage * __backgroundImage = nil;
     {
         [self showNextNotification];
     }
+
     
     return notification;
 }
