@@ -19,6 +19,19 @@ NSString *kCMNavBarNotificationViewTapReceivedNotification = @"kCMNavBarNotifica
 
 #pragma mark CMNavBarNotificationWindow
 
+@interface CMNavBarNotificationViewController : UIViewController
+
+@end
+
+@implementation CMNavBarNotificationViewController
+
+- (BOOL) prefersStatusBarHidden
+{
+    return YES;
+}
+
+@end
+
 @interface CMNavBarNotificationWindow : UIWindow
 
 @property (nonatomic, strong) NSMutableArray *notificationQueue;
@@ -349,7 +362,7 @@ static UIImage * __backgroundImage = nil;
         CGRect frame = [CMNavBarNotificationWindow notificationRectWithOrientation:orientation];
         __notificationWindow = [[CMNavBarNotificationWindow alloc] initWithFrame:frame];
         __notificationWindow.hidden = NO;
-        __notificationWindow.rootViewController = [[[[UIApplication sharedApplication] delegate] window] rootViewController];
+        __notificationWindow.rootViewController = [[CMNavBarNotificationViewController alloc] init];
     }
     CGRect bounds = __notificationWindow.bounds;
     CMNavBarNotificationView * notification = [[CMNavBarNotificationView alloc] initWithFrame:bounds];
